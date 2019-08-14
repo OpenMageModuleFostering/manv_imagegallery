@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Manv
+ * @package    Manv_Imagegallery
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Manv_Imagegallery>
+            <version>0.1.0</version>
+        </Manv_Imagegallery>
+    </modules>
+    <frontend>
+        <routers>
+            <imagegallery>
+                <use>standard</use>
+                <args>
+                    <module>Manv_Imagegallery</module>
+                    <frontName>imagegallery</frontName>
+                </args>
+            </imagegallery>
+        </routers>
+        <layout>
+            <updates>
+                <imagegallery>
+                    <file>imagegallery.xml</file>
+                </imagegallery>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<imagegallery>
+				<use>admin</use>
+				<args>
+					<module>Manv_Imagegallery</module>
+					<frontName>imagegallery</frontName>
+				</args>
+			</imagegallery>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<imagegallery module="imagegallery">
+				<title>Imagegallery</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="imagegallery">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>imagegallery/adminhtml_imagegallery</action>
+					</items>
+				</children>
+			</imagegallery>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Manv_Imagegallery>
+							<title>Imagegallery Module</title>
+							<sort_order>10</sort_order>
+						</Manv_Imagegallery>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<imagegallery>
+					<file>imagegallery.xml</file>
+				</imagegallery>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <imagegallery>
+                <class>Manv_Imagegallery_Model</class>
+                <resourceModel>imagegallery_mysql4</resourceModel>
+            </imagegallery>
+            <imagegallery_mysql4>
+                <class>Manv_Imagegallery_Model_Mysql4</class>
+                <entities>
+                    <imagegallery>
+                        <table>imagegallery</table>
+                    </imagegallery>
+                </entities>
+            </imagegallery_mysql4>
+        </models>
+        <resources>
+            <imagegallery_setup>
+                <setup>
+                    <module>Manv_Imagegallery</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </imagegallery_setup>
+            <imagegallery_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </imagegallery_write>
+            <imagegallery_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </imagegallery_read>
+        </resources>
+        <blocks>
+            <imagegallery>
+                <class>Manv_Imagegallery_Block</class>
+            </imagegallery>
+        </blocks>
+        <helpers>
+            <imagegallery>
+                <class>Manv_Imagegallery_Helper</class>
+            </imagegallery>
+        </helpers>
+    </global>
+</config>

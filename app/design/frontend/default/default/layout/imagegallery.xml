@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <imagegallery_index_index>
+        <reference name="content">
+            <block type="imagegallery/imagegallery" name="imagegallery" template="imagegallery/imagegallery.phtml" />
+        </reference>
+    </imagegallery_index_index>
+</layout> 
