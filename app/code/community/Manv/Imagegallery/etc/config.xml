@@ -2,7 +2,7 @@
 <config>
   <modules>
     <Manv_Imagegallery>
-      <version>8.1.1</version>
+      <version>8.1.2</version>
     </Manv_Imagegallery>
   </modules>
   <frontend>
@@ -34,5 +34,93 @@
 		<class>Manv_Imagegallery_Block</class>
 	  </imagegallery>
 	</blocks>
+	<models>
+	  <imagegallery>
+		<class>Manv_Imagegallery_Model</class>
+		<resourceModel>imagegallery_mysql4</resourceModel>
+	  </imagegallery>
+	  <imagegallery_mysql4>
+		<class>Manv_Imagegallery_Model_Mysql4</class>
+		<entities>		  
+			  <imagegallery>
+				<table>manvimagegallery</table>
+			  </imagegallery>
+        </entities>
+	  </imagegallery_mysql4>
+	</models>
+	<resources>
+	  <imagegallery_setup>
+		<setup>
+		  <module>Manv_Imagegallery</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </imagegallery_setup>
+	  <imagegallery_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </imagegallery_write>
+	  <imagegallery_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </imagegallery_read>
+	</resources>
   </global>
+  <admin>
+	<routers>
+	  <imagegallery>
+	    <use>admin</use>
+		<args>
+		  <module>Manv_Imagegallery</module>
+		  <frontName>imagegallery</frontName>
+		</args>
+	  </imagegallery>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <imagegallery module="imagegallery">
+		<title>Imagegallery</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <imagegallery module="imagegallery">
+		    <title>Manage Imagegallery</title>
+			<sort_order>0</sort_order>
+			<action>imagegallery/adminhtml_imagegallery</action>
+		  </imagegallery>
+		</children>
+	  </imagegallery>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<imagegallery translate="title" module="imagegallery">
+			  <title>Imagegallery</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <imagegallery translate="title">
+			<title>Manage Imagegallery</title>
+			<sort_order>0</sort_order>
+		  </imagegallery>
+			  </children>
+			</imagegallery>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<imagegallery>
+		  <file>imagegallery.xml</file>
+		</imagegallery>
+	  </updates>
+	</layout>
+  </adminhtml>
 </config> 

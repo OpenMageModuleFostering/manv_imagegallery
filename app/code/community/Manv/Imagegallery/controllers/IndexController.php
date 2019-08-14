@@ -3,7 +3,7 @@ class Manv_Imagegallery_IndexController extends Mage_Core_Controller_Front_Actio
     public function IndexAction() {
       
 	  $this->loadLayout();   
-	  $this->getLayout()->getBlock("head")->setTitle($this->__("Titlename"));
+	  $this->getLayout()->getBlock("head")->setTitle($this->__("Image Gallery"));
 	        $breadcrumbs = $this->getLayout()->getBlock("breadcrumbs");
       $breadcrumbs->addCrumb("home", array(
                 "label" => $this->__("Home Page"),
@@ -11,9 +11,9 @@ class Manv_Imagegallery_IndexController extends Mage_Core_Controller_Front_Actio
                 "link"  => Mage::getBaseUrl()
 		   ));
 
-      $breadcrumbs->addCrumb("titlename", array(
-                "label" => $this->__("Titlename"),
-                "title" => $this->__("Titlename")
+      $breadcrumbs->addCrumb("image gallery", array(
+                "label" => $this->__("Image Gallery"),
+                "title" => $this->__("Image Gallery")
 		   ));
 
       $this->renderLayout(); 
